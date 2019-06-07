@@ -153,7 +153,7 @@ XCFLAGS=
 #
 # Switch to harder (and slower) hash function when a collision chain in
 # the string hash table exceeds certain length.
-XCFLAGS+= -DLUAJIT_SMART_STRINGS=1
+#XCFLAGS+= -DLUAJIT_SMART_STRINGS=1
 #
 ##############################################################################
 # You probably don't need to change anything below this line!
