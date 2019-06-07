@@ -58,6 +58,11 @@ minilua %DASM% -LN %DASMFLAGS% -o host\buildvm_arch.h %DASC%
 @set LJCOMPILE=%LJCOMPILE% /DLUAJIT_ENABLE_UTF8SCRIPT
 :NOUTF8SCRIPT
 
+@if "%1" neq "smartstring" goto :NOSMARTSTRING
+@shift
+@set LJCOMPILE=%LJCOMPILE% /DLUAJIT_SMART_STRINGS=1
+:NOSMARTSTRING
+
 %LJCOMPILE% /I "." /I %DASMDIR% host\buildvm*.c
 @if errorlevel 1 goto :BAD
 %LJLINK% /out:buildvm.exe buildvm*.obj
